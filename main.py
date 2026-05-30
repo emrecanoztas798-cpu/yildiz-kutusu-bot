@@ -1,3 +1,4 @@
+
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, ContextTypes, filters
 import os
@@ -30,7 +31,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = update.message.text.lower()
 
-    # 🤍 özel teşekkür cevabı
+    # 🤍 teşekkür / sağ ol cevabı
     if any(word in text for word in [
         "teşekkür ederim",
         "tesekkür ederim",
@@ -42,6 +43,13 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(
             "bunu tek başına taşımak zorunda olmadığın için ben teşekkür ederim\n\n"
             "bazen bir duyguyu çözmekten önce ona yer açmak gerekir"
+        )
+        return
+
+    # ❤️‍🔥 aşk cevabı
+    if "aşk ne demek" in text or "ask ne demek" in text:
+        await update.message.reply_text(
+            "aşkkktannnn yanmakkk ne demekkk ❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥"
         )
         return
 
